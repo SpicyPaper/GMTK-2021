@@ -487,8 +487,8 @@ MonoBehaviour:
   inputManager: {fileID: 548559364}
   playerA: {fileID: 0}
   playerB: {fileID: 0}
-  playerPrefabA: {fileID: 1296220859768656869, guid: b216f0d13637b7d4e967214ac37f4f52, type: 3}
-  playerPrefabB: {fileID: 1296220859768656869, guid: b216f0d13637b7d4e967214ac37f4f52, type: 3}
+  playerPrefabA: {fileID: 1296220859768656869, guid: 481874e1076fdff4994f6e403b7f05d5, type: 3}
+  playerPrefabB: {fileID: 1296220859768656869, guid: 481874e1076fdff4994f6e403b7f05d5, type: 3}
   spawnPointA: {fileID: 561753977}
   spawnPointB: {fileID: 335466636}
   waitingForPlayers: 1
@@ -555,7 +555,7 @@ MonoBehaviour:
         m_Action: Join
         m_Flags: 0
     m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 1296220859768656869, guid: b216f0d13637b7d4e967214ac37f4f52, type: 3}
+  m_PlayerPrefab: {fileID: 1296220859768656869, guid: 481874e1076fdff4994f6e403b7f05d5, type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
   m_FixedNumberOfSplitScreens: -1

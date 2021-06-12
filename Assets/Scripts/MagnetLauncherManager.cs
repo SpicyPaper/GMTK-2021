@@ -31,7 +31,7 @@ public class MagnetLauncherManager : MonoBehaviour
     private Rigidbody2D magnetRigidbody;
     private SpriteRenderer magnetSprite;
 
-    private const float MAGNET_SPEED = 10;
+    private const float MAGNET_SPEED = 20;
     private const float MAGNET_DISTANCE_FROM_BODY = 0.6f;
 
     private void Start()

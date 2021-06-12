@@ -15,10 +15,6 @@ public class MagnetManager : MonoBehaviour
     {
         if (collision.tag == "Wall")
         {
-            var collisionPoint = collision.ClosestPoint(transform.position);
-            Debug.Log(transform.position);
-            transform.position = collisionPoint;
-            Debug.Log(transform.position);
             rigidbody2D.velocity = Vector2.zero;
         }
     }

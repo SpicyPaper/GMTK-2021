@@ -33,6 +33,7 @@ public class MagnetLauncherManager : MonoBehaviour
 
     private const float MAGNET_SPEED = 20;
     private const float MAGNET_DISTANCE_FROM_BODY = 0.6f;
+    private const float MAGNET_OFFSET = 0.05f;
 
     private void Start()
     {
@@ -97,7 +98,7 @@ public class MagnetLauncherManager : MonoBehaviour
             y = mousePos.y - bodyPos.y;
             x = mousePos.x - bodyPos.x;
 
-            offset = (launcherSide == LauncherSide.RIGHT ? 1 : -1) * 0.02f;
+            offset = (launcherSide == LauncherSide.RIGHT ? 1 : -1) * MAGNET_OFFSET;
         }
         else
         {
@@ -130,6 +131,11 @@ public class MagnetLauncherManager : MonoBehaviour
             default:
                 Debug.Log("Case not treated.");
                 return;
+        }
+        if (magnetState == MagnetState.THROWN && magnetRigidbody.velocity == Vector2.zero)
+        {
+            magnetPointEffector.enabled = true;
+            magnetState = MagnetState.FIXED;
         }
         if (control.wasPressedThisFrame)
         {

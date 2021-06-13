@@ -246,6 +246,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5798350544616733613, guid: 481874e1076fdff4994f6e403b7f05d5, type: 3}
+      propertyPath: magnetFieldHandler
+      value: 
+      objectReference: {fileID: 2532014025619978965}
+    - target: {fileID: 5798350544616733613, guid: 481874e1076fdff4994f6e403b7f05d5, type: 3}
       propertyPath: magnetLauncherLeft
       value: 
       objectReference: {fileID: 5161695444179373635}
@@ -356,6 +360,10 @@ PrefabInstance:
       propertyPath: magnetPoint
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2969744215425250231, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
+      propertyPath: launcherParticleSystem
+      value: 
+      objectReference: {fileID: 5854581932770520168}
     - target: {fileID: 3326868193543696408, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -375,6 +383,18 @@ PrefabInstance:
     - target: {fileID: 4080225139941099989, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587768574119367068, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.36140513
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587768574119367068, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.7169812
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587768574119367068, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4875589188422794258, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
       propertyPath: m_Layer
@@ -400,6 +420,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 45
       objectReference: {fileID: 0}
+    - target: {fileID: 5422902661832627238, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.1137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422902661832627238, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.90196085
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422902661832627238, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.70980394
+      objectReference: {fileID: 0}
     - target: {fileID: 8049146427750953617, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
       propertyPath: body
       value: 
@@ -412,6 +444,10 @@ PrefabInstance:
       propertyPath: magnetPoint
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8049146427750953617, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
+      propertyPath: launcherParticleSystem
+      value: 
+      objectReference: {fileID: 2726548269544827346}
     - target: {fileID: 8609793938213416388, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
       propertyPath: m_Size.x
       value: 1.1
@@ -424,6 +460,42 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: c0a88a5f4c84ffe438e69bca774aae44, type: 3}
+    - target: {fileID: 8632815920972747423, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632815920972747423, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632815920972747423, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632815920972747423, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632815920972747423, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8191521
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632815920972747423, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632815920972747423, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632815920972747423, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.5735764
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632815920972747423, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 70
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
 --- !u!4 &7764139956634331182 stripped
@@ -442,6 +514,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4bf8a8d5b02e3b4992ddca2df1a4734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!198 &5854581932770520168 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4587768574119367068, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
+  m_PrefabInstance: {fileID: 7968169604312808948}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &81328736549605221 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8049146427750953617, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
@@ -453,3 +530,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4bf8a8d5b02e3b4992ddca2df1a4734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!198 &2726548269544827346 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5422902661832627238, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
+  m_PrefabInstance: {fileID: 7968169604312808948}
+  m_PrefabAsset: {fileID: 0}

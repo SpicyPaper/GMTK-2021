@@ -45,10 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputManager: {fileID: 734795998678939314}
+  mainCamera: {fileID: 0}
   playerA: {fileID: 0}
   playerB: {fileID: 0}
-  playerPrefabA: {fileID: 1296220859768656869, guid: 481874e1076fdff4994f6e403b7f05d5, type: 3}
-  playerPrefabB: {fileID: 1296220859768656869, guid: 481874e1076fdff4994f6e403b7f05d5, type: 3}
+  playerPrefabA: {fileID: 5680247803507143334, guid: bd4decc023ad44a4881b9f086c921301, type: 3}
+  playerPrefabB: {fileID: 7968169603727142601, guid: 901864bcd2debda49a71e9e3e8970272, type: 3}
+  MagnetPointALeft: {fileID: 0}
+  MagnetPointARight: {fileID: 0}
+  MagnetPointBLeft: {fileID: 0}
+  MagnetPointBRight: {fileID: 0}
   spawnPointA: {fileID: 0}
   spawnPointB: {fileID: 0}
   waitingForPlayers: 1

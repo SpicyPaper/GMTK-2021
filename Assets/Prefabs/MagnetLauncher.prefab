@@ -47,8 +47,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
   body: {fileID: 0}
-  magnetPoints: []
+  magnetPoint: {fileID: 0}
   magnetLauncher: {fileID: 8191416057124402045}
+  launcherSide: 0
+  isPlayerRed: 0
+  isControlledByGamepad: 0
+  magnetState: 0
 --- !u!212 &286687036553798541
 SpriteRenderer:
   m_ObjectHideFlags: 0

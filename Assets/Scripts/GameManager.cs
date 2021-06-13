@@ -49,8 +49,11 @@ public class GameManager : MonoBehaviour
 
     private void OnFinishedMenu()
     {
-        playerA.transform.GetChild(0).GetComponent<CharacterController2D>().ResetCharacter();
-        playerB.transform.GetChild(0).GetComponent<CharacterController2D>().ResetCharacter();
+        if (playerA != null && playerB != null)
+        {
+            playerA.transform.GetChild(0).GetComponent<CharacterController2D>().ResetCharacter();
+            playerB.transform.GetChild(0).GetComponent<CharacterController2D>().ResetCharacter();
+        }
     }
 
     private void OnPlayerHit(bool redWon)

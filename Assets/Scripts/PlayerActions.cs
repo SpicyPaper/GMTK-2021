@@ -7,6 +7,7 @@ public class PlayerActions : MonoBehaviour
 {
 
     public CharacterController2D controller;
+    public MagnetFieldHandler magnetFieldHandler;
     public MagnetLauncherManager magnetLauncherLeft;
     public MagnetLauncherManager magnetLauncherRight;
     bool jump = false;
@@ -14,10 +15,6 @@ public class PlayerActions : MonoBehaviour
     [Header("Input Settings")]
     public PlayerInput playerInput;
     private Vector3 rawInputMovement;
-    private Vector3 rawAimMovement;
-
-    private bool action1 = false;
-    private bool action2 = false;
 
     private void Start()
     {
@@ -25,10 +22,6 @@ public class PlayerActions : MonoBehaviour
         magnetLauncherRight.isControlledByGamepad = playerInput.currentControlScheme == "Gamepad";
     }
 
-    private void Update()
-    {
-        //magnetLauncherManager.Aim(rawAimMovement);
-    }
 
     void FixedUpdate()
     {
@@ -36,9 +29,6 @@ public class PlayerActions : MonoBehaviour
         {
             // Move our character
             controller.Move(rawInputMovement.x * Time.fixedDeltaTime, jump);
-            // TODO
-            // 
-            // actions
         }
         jump = false;
     }
@@ -59,7 +49,6 @@ public class PlayerActions : MonoBehaviour
 
     public void OnAim(InputAction.CallbackContext value)
     {
-        print(value.ReadValue<Vector2>());
         magnetLauncherLeft.Aim(value.ReadValue<Vector2>());
         magnetLauncherRight.Aim(value.ReadValue<Vector2>());
     }
@@ -67,19 +56,25 @@ public class PlayerActions : MonoBehaviour
     public void OnAction1(InputAction.CallbackContext value)
     {
         if (value.started)
-            action1 = true;
-
+        {
+            magnetLauncherLeft.Pressed(true);
+        }
         if (value.canceled)
-            action1 = false;
+        {
+            magnetLauncherLeft.Released(true);
+        }
     }
 
     public void OnAction2(InputAction.CallbackContext value)
     {
         if (value.started)
-            action2 = true;
-
+        {
+            magnetLauncherRight.Pressed(true);
+        }
         if (value.canceled)
-            action2 = false;
+        {
+            magnetLauncherRight.Released(true);
+        }
     }
 
 
@@ -88,6 +83,7 @@ public class PlayerActions : MonoBehaviour
         if (value.started)
         {
             // TODO attack
+            magnetFieldHandler.Attack();
         }
     }
 

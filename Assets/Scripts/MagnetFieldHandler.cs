@@ -37,9 +37,9 @@ public class MagnetFieldHandler : MonoBehaviour
         fieldMesh.UpdateColor(color);
     }
 
-    private void Update()
+    public void Attack()
     {
-        if (Input.GetKey("e") && AreMagnetsFixed())
+        if (AreMagnetsFixed())
         {
             if (!casting)
             {
@@ -51,6 +51,10 @@ public class MagnetFieldHandler : MonoBehaviour
                 rigidbody.constraints = RigidbodyConstraints2D.FreezePosition;
             }
         }
+    }
+
+    private void Update()
+    {
 
         if (casting)
         {
@@ -63,7 +67,7 @@ public class MagnetFieldHandler : MonoBehaviour
                 {
                     flashProgress = 0;
                 }
-                
+
                 Color mixedColor = Color.Lerp(color, Color.white, flashProgress);
                 fieldMesh.UpdateColor(mixedColor);
             }

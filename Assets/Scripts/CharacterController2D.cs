@@ -85,7 +85,7 @@ public class CharacterController2D : MonoBehaviour
 
         move *= runSpeed;
         //only control the player if grounded or airControl is turned on
-        if (m_Grounded || m_AirControl)
+        if (m_Grounded || m_AirControl && (move > 0.001 || move < -0.001))
         {
             // Move the character by finding the target velocity
             Vector3 targetVelocity = new Vector2(move, m_Rigidbody2D.velocity.y);

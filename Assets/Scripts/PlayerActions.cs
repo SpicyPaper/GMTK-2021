@@ -20,10 +20,14 @@ public class PlayerActions : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		// Move our character
-		controller.Move(rawInputMovement.x * Time.fixedDeltaTime, jump);
-		// TODO
-		// magnetController.Aim(rawAimMovement);
+		if (!GameManager.Instance.waitingForPlayers)
+		{
+			// Move our character
+			controller.Move(rawInputMovement.x * Time.fixedDeltaTime, jump);
+			// TODO
+			// magnetController.Aim(rawAimMovement);
+			// actions
+		}
 		jump = false;
 	}
 

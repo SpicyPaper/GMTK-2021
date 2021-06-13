@@ -54,16 +54,19 @@ public class GameManager : MonoBehaviour
             points.Add(MagnetPointALeft.GetComponent<PointEffector2D>());
             points.Add(MagnetPointARight.GetComponent<PointEffector2D>());
 
-            magnetFieldHandler.magnetLaucherLeft.magnetPoint = MagnetPointALeft;
-            magnetFieldHandler.magnetLaucherLeft.mainCamera = mainCamera;
-            magnetFieldHandler.magnetRightLeft.magnetPoint = MagnetPointARight;
-            magnetFieldHandler.magnetRightLeft.mainCamera = mainCamera;
+            magnetFieldHandler.magnetLauncherLeft.magnetPoint = MagnetPointALeft;
+            magnetFieldHandler.magnetLauncherLeft.mainCamera = mainCamera;
+            magnetFieldHandler.magnetLauncherRight.magnetPoint = MagnetPointARight;
+            magnetFieldHandler.magnetLauncherRight.mainCamera = mainCamera;
 
-            magnetFieldHandler.magnetLaucherLeft.isPlayerRed = true;
-            magnetFieldHandler.magnetRightLeft.isPlayerRed = true;
+            magnetFieldHandler.magnetLauncherLeft.isPlayerRed = true;
+            magnetFieldHandler.magnetLauncherRight.isPlayerRed = true;
 
-            magnetFieldHandler.magnetLaucherLeft.Init();
-            magnetFieldHandler.magnetRightLeft.Init();
+            MagnetPointALeft.GetComponent<MagnetManager>().manager = magnetFieldHandler.magnetLauncherLeft;
+            MagnetPointARight.GetComponent<MagnetManager>().manager = magnetFieldHandler.magnetLauncherRight;
+
+            magnetFieldHandler.magnetLauncherLeft.Init();
+            magnetFieldHandler.magnetLauncherRight.Init();
         }
         else
         {
@@ -78,16 +81,19 @@ public class GameManager : MonoBehaviour
             points.Add(MagnetPointBLeft.GetComponent<PointEffector2D>());
             points.Add(MagnetPointBRight.GetComponent<PointEffector2D>());
 
-            magnetFieldHandler.magnetLaucherLeft.magnetPoint = MagnetPointBLeft;
-            magnetFieldHandler.magnetLaucherLeft.mainCamera = mainCamera;
-            magnetFieldHandler.magnetRightLeft.magnetPoint = MagnetPointBRight;
-            magnetFieldHandler.magnetRightLeft.mainCamera = mainCamera;
+            magnetFieldHandler.magnetLauncherLeft.magnetPoint = MagnetPointBLeft;
+            magnetFieldHandler.magnetLauncherLeft.mainCamera = mainCamera;
+            magnetFieldHandler.magnetLauncherRight.magnetPoint = MagnetPointBRight;
+            magnetFieldHandler.magnetLauncherRight.mainCamera = mainCamera;
 
-            magnetFieldHandler.magnetLaucherLeft.isPlayerRed = false;
-            magnetFieldHandler.magnetRightLeft.isPlayerRed = false;
+            magnetFieldHandler.magnetLauncherLeft.isPlayerRed = false;
+            magnetFieldHandler.magnetLauncherRight.isPlayerRed = false;
 
-            magnetFieldHandler.magnetLaucherLeft.Init();
-            magnetFieldHandler.magnetRightLeft.Init();
+            MagnetPointBLeft.GetComponent<MagnetManager>().manager = magnetFieldHandler.magnetLauncherLeft;
+            MagnetPointBRight.GetComponent<MagnetManager>().manager = magnetFieldHandler.magnetLauncherRight;
+
+            magnetFieldHandler.magnetLauncherLeft.Init();
+            magnetFieldHandler.magnetLauncherRight.Init();
 
             inputManager.DisableJoining();
             waitingForPlayers = false;

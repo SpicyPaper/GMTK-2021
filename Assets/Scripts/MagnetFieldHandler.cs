@@ -5,8 +5,8 @@ public class MagnetFieldHandler : MonoBehaviour
     public GameObject magnetPointLeft = null;
     public GameObject magnetPointRight = null;
 
-    public MagnetLauncherManager magnetLaucherLeft = null;
-    public MagnetLauncherManager magnetRightLeft = null;
+    public MagnetLauncherManager magnetLauncherLeft = null;
+    public MagnetLauncherManager magnetLauncherRight = null;
 
     public GameObject characterController = null;
 

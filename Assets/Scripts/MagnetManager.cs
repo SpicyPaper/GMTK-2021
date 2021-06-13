@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MagnetManager : MonoBehaviour
 {
-    [SerializeField] private MagnetLauncherManager manager = null;
+    public MagnetLauncherManager manager = null;
 
     private new Rigidbody2D rigidbody2D;
 
@@ -13,6 +13,11 @@ public class MagnetManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (manager == null)
+        {
+            return;
+        }
+
         if (collision.tag == "Wall")
         {
             rigidbody2D.velocity = Vector2.zero;

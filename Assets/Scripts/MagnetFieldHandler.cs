@@ -32,6 +32,8 @@ public class MagnetFieldHandler : MonoBehaviour
         casting = false;
         rigidbody = characterController.GetComponent<Rigidbody2D>();
         characterController2D = characterController.GetComponent<CharacterController2D>();
+
+        fieldMesh.UpdateColor(color);
     }
 
     private void Update()

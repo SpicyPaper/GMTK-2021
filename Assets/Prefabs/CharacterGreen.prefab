@@ -146,7 +146,7 @@ MonoBehaviour:
   magnetLauncherRight: {fileID: 81328736549605221}
   characterController: {fileID: 9181073861200747255}
   fieldMesh: {fileID: 6918826594263374568}
-  color: {r: 1, g: 0, b: 0, a: 1}
+  color: {r: 0.2111249, g: 1, b: 0, a: 1}
 --- !u!1001 &7968169603682060562
 PrefabInstance:
   m_ObjectHideFlags: 0

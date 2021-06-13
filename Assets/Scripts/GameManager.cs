@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
             playerA = input.transform.parent.gameObject;
             inputManager.playerPrefab = playerPrefabB;
 
-            playerA.transform.position = spawnPointA.position;
+            input.transform.position = spawnPointA.position;
             MagnetFieldHandler magnetFieldHandler = playerA.GetComponent<MagnetFieldHandler>();
             magnetFieldHandler.magnetPointLeft = MagnetPointALeft;
             magnetFieldHandler.magnetPointRight = MagnetPointARight;
@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
         {
             playerB = input.transform.parent.gameObject;
 
-            playerB.transform.position = spawnPointB.position;
+            input.transform.position = spawnPointB.position;
             MagnetFieldHandler magnetFieldHandler = playerB.GetComponent<MagnetFieldHandler>();
             magnetFieldHandler.magnetPointLeft = MagnetPointBLeft;
             magnetFieldHandler.magnetPointRight = MagnetPointBRight;

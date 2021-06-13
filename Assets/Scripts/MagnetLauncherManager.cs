@@ -56,9 +56,21 @@ public class MagnetLauncherManager : MonoBehaviour
 
     private void Start()
     {
-        this.aimDirection = Vector2.up;
-        magnetPointEffector.enabled = false;
+        aimDirection = Vector2.up;
         magnetSprite.enabled = false;
+        magnetPointEffector.enabled = false;
+    }
+
+    public void Reset()
+    {
+        if (magnetPointEffector != null)
+        {
+            aimDirection = Vector2.up;
+            magnetSprite.enabled = false;
+            magnetPointEffector.enabled = false;
+
+            magnetState = MagnetState.NONE;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

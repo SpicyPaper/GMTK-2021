@@ -31,6 +31,8 @@ public class MagnetLauncherManager : MonoBehaviour
     private Rigidbody2D magnetRigidbody;
     private SpriteRenderer magnetSprite;
 
+    private bool mouseDown;
+
     private const float MAGNET_SPEED = 20;
     private const float MAGNET_DISTANCE_FROM_BODY = 0.6f;
     private const float MAGNET_OFFSET = 0.05f;
@@ -132,13 +134,15 @@ public class MagnetLauncherManager : MonoBehaviour
                 Debug.Log("Case not treated.");
                 return;
         }
-        if (magnetState == MagnetState.THROWN && magnetRigidbody.velocity == Vector2.zero)
+        if (mouseDown && magnetState == MagnetState.THROWN && magnetRigidbody.velocity == Vector2.zero)
         {
-            magnetPointEffector.enabled = true;
             magnetState = MagnetState.FIXED;
+            magnetPointEffector.enabled = true;
         }
         if (control.wasPressedThisFrame)
         {
+            mouseDown = true;
+
             switch (magnetState)
             {
                 case MagnetState.NONE:
@@ -161,11 +165,14 @@ public class MagnetLauncherManager : MonoBehaviour
         }
         if (control.wasReleasedThisFrame)
         {
+            mouseDown = false;
+
             switch (magnetState)
             {
                 case MagnetState.NONE:
                     break;
                 case MagnetState.THROWN:
+                    magnetPointEffector.enabled = false;
                     break;
                 case MagnetState.FIXED:
                     magnetPointEffector.enabled = false;

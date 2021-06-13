@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2170232174104473749}
   - component: {fileID: 1052573486569565333}
   - component: {fileID: 4767700093449561305}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Magnet
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 3234205568902889662}
   - component: {fileID: 6141134690559510351}
   - component: {fileID: 1055763728919593009}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MagnetPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

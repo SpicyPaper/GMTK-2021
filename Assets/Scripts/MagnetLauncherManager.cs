@@ -22,12 +22,14 @@ public class MagnetLauncherManager : MonoBehaviour
     public GameObject magnetPoint = null;
     [SerializeField] private GameObject magnetLauncher = null;
     [SerializeField] private LauncherSide launcherSide = LauncherSide.RIGHT;
+    public ParticleSystem launcherParticleSystem = null;
     public bool isPlayerRed;
     public bool isControlledByGamepad;
 
     public MagnetState magnetState;
 
     private PointEffector2D magnetPointEffector;
+    private ParticleSystem particleSystem;
     private Rigidbody2D magnetRigidbody;
     private SpriteRenderer magnetSprite;
 
@@ -54,6 +56,7 @@ public class MagnetLauncherManager : MonoBehaviour
         magnetPointEffector = magnetPoint.GetComponent<PointEffector2D>();
         magnetRigidbody = magnetPoint.GetComponent<Rigidbody2D>();
         magnetSprite = magnetPoint.GetComponentInChildren<SpriteRenderer>();
+        particleSystem = magnetPoint.GetComponentInChildren<ParticleSystem>();
     }
 
     private void Start()
@@ -61,6 +64,8 @@ public class MagnetLauncherManager : MonoBehaviour
         this.aimDirection = Vector2.up;
         magnetPointEffector.enabled = false;
         magnetSprite.enabled = false;
+        particleSystem.Stop();
+        launcherParticleSystem.Stop();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -75,6 +80,8 @@ public class MagnetLauncherManager : MonoBehaviour
         {
             magnetPointEffector.enabled = false;
             magnetSprite.enabled = false;
+            particleSystem.Stop();
+            launcherParticleSystem.Stop();
             magnetState = MagnetState.NONE;
         }
     }
@@ -212,8 +219,15 @@ public class MagnetLauncherManager : MonoBehaviour
         if (magnetPointEffector.enabled)
         {
             resVector = magnetPos - bodyPos;
+            particleSystem.Play();
+            launcherParticleSystem.Play();
 
             this.aimDirection = resVector.normalized;
+        }
+        else
+        {
+            particleSystem.Stop();
+            launcherParticleSystem.Stop();
         }
 
         // Mouse move

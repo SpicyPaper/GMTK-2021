@@ -12,6 +12,8 @@ public class MagnetFieldHandler : MonoBehaviour
 
     [SerializeField] private MagnetFieldMesh fieldMesh = null;
 
+    [SerializeField] private Color color = Color.red;
+
     private Vector3 p1;
     private Vector3 p2;
     private Vector3 p3;
@@ -19,6 +21,8 @@ public class MagnetFieldHandler : MonoBehaviour
     private float fieldCastTime;
     private float timePassed;
     private bool casting;
+
+    private const float FLASH_TIME = 0.2f;
 
     private void Start()
     {
@@ -31,18 +35,30 @@ public class MagnetFieldHandler : MonoBehaviour
         {
             if (!casting)
             {
+                GetMagnetFieldCoordinates();
+
                 casting = true;
                 fieldCastTime = 1 + ComputeSurface() / 10;
-
-                GetMagnetFieldCoordinates();
             }
         }
 
         if (casting)
         {
             timePassed += Time.deltaTime;
-            float progress = timePassed / fieldCastTime;
 
+            if (timePassed > fieldCastTime - FLASH_TIME)
+            {
+                float flashProgress = 1 - 2 * Mathf.Abs(timePassed - (fieldCastTime - FLASH_TIME / 2)) / FLASH_TIME;
+                if (flashProgress < 0)
+                {
+                    flashProgress = 0;
+                }
+
+                Color mixedColor = Color.Lerp(color, Color.white, flashProgress);
+                fieldMesh.UpdateColor(mixedColor);
+            }
+
+            float progress = timePassed / fieldCastTime;
             if (progress >= 1)
             {
                 progress = 0;

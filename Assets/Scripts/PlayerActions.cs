@@ -7,6 +7,7 @@ public class PlayerActions : MonoBehaviour
 {
 
     public CharacterController2D controller;
+    public MagnetFieldHandler magnetFieldHandler;
     public MagnetLauncherManager magnetLauncherLeft;
     public MagnetLauncherManager magnetLauncherRight;
     bool jump = false;
@@ -93,6 +94,7 @@ public class PlayerActions : MonoBehaviour
         if (value.started)
         {
             // TODO attack
+            magnetFieldHandler.Attack();
         }
     }
 

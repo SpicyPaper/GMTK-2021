@@ -242,6 +242,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5798350544616733613, guid: 481874e1076fdff4994f6e403b7f05d5, type: 3}
+      propertyPath: magnetFieldHandler
+      value: 
+      objectReference: {fileID: 2532014025619978965}
+    - target: {fileID: 5798350544616733613, guid: 481874e1076fdff4994f6e403b7f05d5, type: 3}
       propertyPath: magnetLauncherLeft
       value: 
       objectReference: {fileID: 5161695444179373635}

@@ -26,6 +26,7 @@ public class MagnetFieldHandler : MonoBehaviour
     private CharacterController2D characterController2D;
 
     private const float FLASH_TIME = 0.2f;
+    private const float DAMAGE_OFFSET = 0.2f;
 
     private void Start()
     {
@@ -62,9 +63,14 @@ public class MagnetFieldHandler : MonoBehaviour
                 {
                     flashProgress = 0;
                 }
-
+                
                 Color mixedColor = Color.Lerp(color, Color.white, flashProgress);
                 fieldMesh.UpdateColor(mixedColor);
+            }
+
+            if (timePassed > fieldCastTime - DAMAGE_OFFSET)
+            {
+                fieldMesh.SetIsTrigger(true);
             }
 
             float progress = timePassed / fieldCastTime;
@@ -74,6 +80,7 @@ public class MagnetFieldHandler : MonoBehaviour
                 timePassed = 0;
                 casting = false;
                 rigidbody.constraints = RigidbodyConstraints2D.None;
+                fieldMesh.SetIsTrigger(false);
             }
 
             fieldMesh.UpdateProgress(progress);

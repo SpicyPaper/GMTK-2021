@@ -57,6 +57,11 @@ public class MagnetFieldMesh : MonoBehaviour
         polyCollider.SetPath(0, points);
     }
 
+    public void SetIsTrigger(bool isTrigger)
+    {
+        polyCollider.enabled = isTrigger;
+    }
+
     public void UpdateProgress(float progress)
     {
         if (progress > 1)

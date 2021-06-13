@@ -42,10 +42,14 @@ public class ScoreHandler : MonoBehaviour
         if (redWon)
         {
             redScore++;
+            redScoreText.color = Color.red;
+            greenScoreText.color = Color.white;
         }
         else
         {
             greenScore++;
+            greenScoreText.color = Color.green;
+            redScoreText.color = Color.white;
         }
 
         redScoreText.text = redScore.ToString();

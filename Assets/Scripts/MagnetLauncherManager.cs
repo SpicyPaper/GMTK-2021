@@ -39,7 +39,7 @@ public class MagnetLauncherManager : MonoBehaviour
 
     private bool isStayedPress;
 
-    private const float MAGNET_SPEED = 20;
+    private const float MAGNET_SPEED = 10;
     private const float MAGNET_DISTANCE_FROM_BODY = 0.6f;
     private const float MAGNET_OFFSET = 0.05f;
 

@@ -46,7 +46,7 @@ public class MagnetFieldHandler : MonoBehaviour
                 GetMagnetFieldCoordinates();
 
                 casting = true;
-                fieldCastTime = 1 + ComputeSurface() / 10;
+                fieldCastTime = 1 + ComputeSurface() / 60;
 
                 rigidbody.constraints = RigidbodyConstraints2D.FreezePosition;
             }

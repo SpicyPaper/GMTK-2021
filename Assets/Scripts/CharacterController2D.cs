@@ -60,6 +60,16 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag.Equals("Field") && 
+            ((gameObject.layer == 10 && collision.gameObject.layer == 11) 
+            || (gameObject.layer == 9 && collision.gameObject.layer == 12)))
+        {
+            // TODO DAMAGES
+        }
+    }
+
     private void Update()
     {
         if (pointEffectors.Count <= 0)

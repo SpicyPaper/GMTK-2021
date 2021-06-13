@@ -380,6 +380,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 09b7f8615aff32a4a88d8a2694e4a9d4, type: 3}
+    - target: {fileID: 3602553554252328162, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4080225139941099989, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
@@ -460,6 +464,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: c0a88a5f4c84ffe438e69bca774aae44, type: 3}
+    - target: {fileID: 8609793938213416388, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8632815920972747423, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
       propertyPath: m_LocalScale.x
       value: 1

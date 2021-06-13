@@ -25,7 +25,7 @@ public class MagnetLauncherManager : MonoBehaviour
     [SerializeField] private GameObject magnetLauncher = null;
     [SerializeField] private LauncherSide launcherSide = LauncherSide.RIGHT;
 
-    private MagnetState magnetState;
+    public MagnetState magnetState;
 
     private PointEffector2D magnetPointEffector;
     private Rigidbody2D magnetRigidbody;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &102157331 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4630957574896535175, guid: bd4decc023ad44a4881b9f086c921301, type: 3}
+  m_PrefabInstance: {fileID: 5680247803200554759}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d14b3ff8897b94b9d74b62cdf7ad05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &181488225
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,6 +430,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f910f847b8ce3894ba245a08fdfb1d88, type: 3}
+--- !u!1 &1076200086 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6857101282318632600, guid: bd4decc023ad44a4881b9f086c921301, type: 3}
+  m_PrefabInstance: {fileID: 5680247803200554759}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1089674415 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2404952230153605898, guid: bd4decc023ad44a4881b9f086c921301, type: 3}
+  m_PrefabInstance: {fileID: 5680247803200554759}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4bf8a8d5b02e3b4992ddca2df1a4734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1153490136
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -537,6 +564,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f910f847b8ce3894ba245a08fdfb1d88, type: 3}
+--- !u!114 &1651448960 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7485807116651106860, guid: bd4decc023ad44a4881b9f086c921301, type: 3}
+  m_PrefabInstance: {fileID: 5680247803200554759}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4bf8a8d5b02e3b4992ddca2df1a4734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1944987413
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,6 +665,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 244159849660049082, guid: bd4decc023ad44a4881b9f086c921301, type: 3}
+      propertyPath: mesh
+      value: 
+      objectReference: {fileID: 102157331}
+    - target: {fileID: 244159849660049082, guid: bd4decc023ad44a4881b9f086c921301, type: 3}
+      propertyPath: magnetPointLeft
+      value: 
+      objectReference: {fileID: 274822781}
+    - target: {fileID: 244159849660049082, guid: bd4decc023ad44a4881b9f086c921301, type: 3}
+      propertyPath: magnetRightLeft
+      value: 
+      objectReference: {fileID: 1089674415}
+    - target: {fileID: 244159849660049082, guid: bd4decc023ad44a4881b9f086c921301, type: 3}
+      propertyPath: magnetPointRight
+      value: 
+      objectReference: {fileID: 274822780}
+    - target: {fileID: 244159849660049082, guid: bd4decc023ad44a4881b9f086c921301, type: 3}
+      propertyPath: magnetLaucherLeft
+      value: 
+      objectReference: {fileID: 1651448960}
+    - target: {fileID: 244159849660049082, guid: bd4decc023ad44a4881b9f086c921301, type: 3}
+      propertyPath: characterController
+      value: 
+      objectReference: {fileID: 1076200086}
     - target: {fileID: 2404952230153605898, guid: bd4decc023ad44a4881b9f086c921301, type: 3}
       propertyPath: mainCamera
       value: 

@@ -59,7 +59,6 @@ public class PlayerActions : MonoBehaviour
 
     public void OnAim(InputAction.CallbackContext value)
     {
-        print(value.ReadValue<Vector2>());
         magnetLauncherLeft.Aim(value.ReadValue<Vector2>());
         magnetLauncherRight.Aim(value.ReadValue<Vector2>());
     }
@@ -67,19 +66,25 @@ public class PlayerActions : MonoBehaviour
     public void OnAction1(InputAction.CallbackContext value)
     {
         if (value.started)
-            action1 = true;
-
+        {
+            magnetLauncherLeft.Pressed(true);
+        }
         if (value.canceled)
-            action1 = false;
+        {
+            magnetLauncherLeft.Released(true);
+        }
     }
 
     public void OnAction2(InputAction.CallbackContext value)
     {
         if (value.started)
-            action2 = true;
-
+        {
+            magnetLauncherRight.Pressed(true);
+        }
         if (value.canceled)
-            action2 = false;
+        {
+            magnetLauncherRight.Released(true);
+        }
     }
 
 

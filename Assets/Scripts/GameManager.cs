@@ -29,10 +29,46 @@ public class GameManager : MonoBehaviour
 
     public int LOADLEVEL = -1;
 
+    private void OnEnable()
+    {
+        CharacterController2D.OnTakeDamageEvent += OnPlayerHit;
+        ScoreHandler.OnFinishedEvent += OnFinishedMenu;
+    }
+
+    private void OnDisable()
+    {
+        CharacterController2D.OnTakeDamageEvent -= OnPlayerHit;
+        ScoreHandler.OnFinishedEvent -= OnFinishedMenu;
+    }
+
     private void Awake()
     {
         Instance = this;
         //StartCoroutine(LoadFirstLevel());
+    }
+
+    private void OnFinishedMenu()
+    {
+        if (playerA != null && playerB != null)
+        {
+            playerA.transform.GetChild(0).GetComponent<CharacterController2D>().ResetCharacter();
+            playerB.transform.GetChild(0).GetComponent<CharacterController2D>().ResetCharacter();
+        }
+    }
+
+    private void OnPlayerHit(bool redWon)
+    {
+        playerA.transform.GetChild(0).position = spawnPointA.position;
+        playerB.transform.GetChild(0).position = spawnPointB.position;
+
+        playerA.transform.GetChild(0).GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        playerB.transform.GetChild(0).GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+        playerA.transform.GetChild(1).GetChild(0).GetComponent<MagnetLauncherManager>().Reset();
+        playerA.transform.GetChild(1).GetChild(1).GetComponent<MagnetLauncherManager>().Reset();
+
+        playerB.transform.GetChild(1).GetChild(0).GetComponent<MagnetLauncherManager>().Reset();
+        playerB.transform.GetChild(1).GetChild(1).GetComponent<MagnetLauncherManager>().Reset();
     }
 
     void OnPlayerJoined(PlayerInput input)

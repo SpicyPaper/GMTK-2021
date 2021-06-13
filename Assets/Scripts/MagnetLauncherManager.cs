@@ -25,14 +25,17 @@ public class MagnetLauncherManager : MonoBehaviour
     [SerializeField] private GameObject magnetLauncher = null;
     [SerializeField] private LauncherSide launcherSide = LauncherSide.RIGHT;
 
-    private MagnetState magnetState;
+    public MagnetState magnetState;
 
     private PointEffector2D magnetPointEffector;
     private Rigidbody2D magnetRigidbody;
     private SpriteRenderer magnetSprite;
 
+    private bool mouseDown;
+
     private const float MAGNET_SPEED = 20;
     private const float MAGNET_DISTANCE_FROM_BODY = 0.6f;
+    private const float MAGNET_OFFSET = 0.05f;
 
     private void Start()
     {
@@ -97,7 +100,7 @@ public class MagnetLauncherManager : MonoBehaviour
             y = mousePos.y - bodyPos.y;
             x = mousePos.x - bodyPos.x;
 
-            offset = (launcherSide == LauncherSide.RIGHT ? 1 : -1) * 0.02f;
+            offset = (launcherSide == LauncherSide.RIGHT ? 1 : -1) * MAGNET_OFFSET;
         }
         else
         {
@@ -131,8 +134,15 @@ public class MagnetLauncherManager : MonoBehaviour
                 Debug.Log("Case not treated.");
                 return;
         }
+        if (mouseDown && magnetState == MagnetState.THROWN && magnetRigidbody.velocity == Vector2.zero)
+        {
+            magnetState = MagnetState.FIXED;
+            magnetPointEffector.enabled = true;
+        }
         if (control.wasPressedThisFrame)
         {
+            mouseDown = true;
+
             switch (magnetState)
             {
                 case MagnetState.NONE:
@@ -155,11 +165,14 @@ public class MagnetLauncherManager : MonoBehaviour
         }
         if (control.wasReleasedThisFrame)
         {
+            mouseDown = false;
+
             switch (magnetState)
             {
                 case MagnetState.NONE:
                     break;
                 case MagnetState.THROWN:
+                    magnetPointEffector.enabled = false;
                     break;
                 case MagnetState.FIXED:
                     magnetPointEffector.enabled = false;

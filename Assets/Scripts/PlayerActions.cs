@@ -6,35 +6,47 @@ using UnityEngine.InputSystem;
 public class PlayerActions : MonoBehaviour
 {
 
-	public CharacterController2D controller;
-	bool jump = false;
+    public CharacterController2D controller;
+    public MagnetLauncherManager magnetLauncherLeft;
+    public MagnetLauncherManager magnetLauncherRight;
+    bool jump = false;
 
-	[Header("Input Settings")]
-	public PlayerInput playerInput;
-	private Vector3 rawInputMovement;
-	private Vector3 rawAimMovement;
+    [Header("Input Settings")]
+    public PlayerInput playerInput;
+    private Vector3 rawInputMovement;
+    private Vector3 rawAimMovement;
 
-	private bool action1 = false;
-	private bool action2 = false;
+    private bool action1 = false;
+    private bool action2 = false;
 
-
-	void FixedUpdate()
-	{
-		if (!GameManager.Instance.waitingForPlayers)
-		{
-			// Move our character
-			controller.Move(rawInputMovement.x * Time.fixedDeltaTime, jump);
-			// TODO
-			// magnetController.Aim(rawAimMovement);
-			// actions
-		}
-		jump = false;
-	}
-
-	public void OnMovement(InputAction.CallbackContext value)
+    private void Start()
     {
-		Vector2 inputMovement = value.ReadValue<Vector2>();
-		rawInputMovement = new Vector3(inputMovement.x, 0, inputMovement.y);
+        magnetLauncherLeft.isControlledByGamepad = playerInput.currentControlScheme == "Gamepad";
+        magnetLauncherRight.isControlledByGamepad = playerInput.currentControlScheme == "Gamepad";
+    }
+
+    private void Update()
+    {
+        //magnetLauncherManager.Aim(rawAimMovement);
+    }
+
+    void FixedUpdate()
+    {
+        if (!GameManager.Instance.waitingForPlayers)
+        {
+            // Move our character
+            controller.Move(rawInputMovement.x * Time.fixedDeltaTime, jump);
+            // TODO
+            // 
+            // actions
+        }
+        jump = false;
+    }
+
+    public void OnMovement(InputAction.CallbackContext value)
+    {
+        Vector2 inputMovement = value.ReadValue<Vector2>();
+        rawInputMovement = new Vector3(inputMovement.x, 0, inputMovement.y);
     }
 
     public void OnJump(InputAction.CallbackContext value)
@@ -45,37 +57,38 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
-	public void OnAim(InputAction.CallbackContext value)
-	{
-		Vector2 aimMovement = value.ReadValue<Vector2>();
-		rawAimMovement = new Vector3(aimMovement.x, 0, aimMovement.y);
-	}
+    public void OnAim(InputAction.CallbackContext value)
+    {
+        print(value.ReadValue<Vector2>());
+        magnetLauncherLeft.Aim(value.ReadValue<Vector2>());
+        magnetLauncherRight.Aim(value.ReadValue<Vector2>());
+    }
 
-	public void OnAction1(InputAction.CallbackContext value)
-	{
-		if (value.started)
-			action1 = true;
+    public void OnAction1(InputAction.CallbackContext value)
+    {
+        if (value.started)
+            action1 = true;
 
-		if (value.canceled)
-			action1 = false;
-	}
+        if (value.canceled)
+            action1 = false;
+    }
 
-	public void OnAction2(InputAction.CallbackContext value)
-	{
-		if (value.started)
-			action2 = true;
+    public void OnAction2(InputAction.CallbackContext value)
+    {
+        if (value.started)
+            action2 = true;
 
-		if (value.canceled)
-			action2 = false;
-	}
+        if (value.canceled)
+            action2 = false;
+    }
 
 
-	public void OnAttack(InputAction.CallbackContext value)
-	{
-		if (value.started)
+    public void OnAttack(InputAction.CallbackContext value)
+    {
+        if (value.started)
         {
-			// TODO attack
+            // TODO attack
         }
-	}
+    }
 
 }

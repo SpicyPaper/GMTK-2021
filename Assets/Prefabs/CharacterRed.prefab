@@ -445,6 +445,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5798350544616733613, guid: 481874e1076fdff4994f6e403b7f05d5, type: 3}
+      propertyPath: magnetLauncherLeft
+      value: 
+      objectReference: {fileID: 7485807116651106860}
+    - target: {fileID: 5798350544616733613, guid: 481874e1076fdff4994f6e403b7f05d5, type: 3}
+      propertyPath: magnetLauncherRight
+      value: 
+      objectReference: {fileID: 2404952230153605898}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 481874e1076fdff4994f6e403b7f05d5, type: 3}
 --- !u!1 &6857101282318632600 stripped

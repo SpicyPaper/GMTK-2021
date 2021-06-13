@@ -59,6 +59,9 @@ public class GameManager : MonoBehaviour
             magnetFieldHandler.magnetRightLeft.magnetPoint = MagnetPointARight;
             magnetFieldHandler.magnetRightLeft.mainCamera = mainCamera;
 
+            magnetFieldHandler.magnetLaucherLeft.isPlayerRed = true;
+            magnetFieldHandler.magnetRightLeft.isPlayerRed = true;
+
             magnetFieldHandler.magnetLaucherLeft.Init();
             magnetFieldHandler.magnetRightLeft.Init();
         }
@@ -79,6 +82,9 @@ public class GameManager : MonoBehaviour
             magnetFieldHandler.magnetLaucherLeft.mainCamera = mainCamera;
             magnetFieldHandler.magnetRightLeft.magnetPoint = MagnetPointBRight;
             magnetFieldHandler.magnetRightLeft.mainCamera = mainCamera;
+
+            magnetFieldHandler.magnetLaucherLeft.isPlayerRed = false;
+            magnetFieldHandler.magnetRightLeft.isPlayerRed = false;
 
             magnetFieldHandler.magnetLaucherLeft.Init();
             magnetFieldHandler.magnetRightLeft.Init();

@@ -260,45 +260,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1935921288045476637, guid: 27c510568f2d15544bfccf5478ee20d6, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3172729674800060866, guid: 27c510568f2d15544bfccf5478ee20d6, type: 3}
+    - target: {fileID: 1449601950302033361, guid: 27c510568f2d15544bfccf5478ee20d6, type: 3}
       propertyPath: m_TagString
-      value: MagnetLeft
+      value: PlayerRed
       objectReference: {fileID: 0}
-    - target: {fileID: 4081542131181950774, guid: 27c510568f2d15544bfccf5478ee20d6, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726883188878161510, guid: 27c510568f2d15544bfccf5478ee20d6, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5069915819814060083, guid: 27c510568f2d15544bfccf5478ee20d6, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5069915820910336063, guid: 27c510568f2d15544bfccf5478ee20d6, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6141224419964582034, guid: 27c510568f2d15544bfccf5478ee20d6, type: 3}
+    - target: {fileID: 1449601951387848157, guid: 27c510568f2d15544bfccf5478ee20d6, type: 3}
       propertyPath: m_TagString
-      value: MagnetRight
+      value: PlayerRed
       objectReference: {fileID: 0}
-    - target: {fileID: 7196763067989629517, guid: 27c510568f2d15544bfccf5478ee20d6, type: 3}
-      propertyPath: m_Enabled
-      value: 0
+    - target: {fileID: 3577539505990520751, guid: 27c510568f2d15544bfccf5478ee20d6, type: 3}
+      propertyPath: m_TagString
+      value: PlayerGreen
       objectReference: {fileID: 0}
-    - target: {fileID: 7215539858605059096, guid: 27c510568f2d15544bfccf5478ee20d6, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7215539859657290772, guid: 27c510568f2d15544bfccf5478ee20d6, type: 3}
-      propertyPath: m_Enabled
-      value: 0
+    - target: {fileID: 5230991436962393855, guid: 27c510568f2d15544bfccf5478ee20d6, type: 3}
+      propertyPath: m_TagString
+      value: PlayerGreen
       objectReference: {fileID: 0}
     - target: {fileID: 7690390352126264818, guid: 27c510568f2d15544bfccf5478ee20d6, type: 3}
       propertyPath: m_RootOrder

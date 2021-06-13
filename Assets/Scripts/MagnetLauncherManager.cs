@@ -24,6 +24,7 @@ public class MagnetLauncherManager : MonoBehaviour
     public GameObject magnetPoint = null;
     [SerializeField] private GameObject magnetLauncher = null;
     [SerializeField] private LauncherSide launcherSide = LauncherSide.RIGHT;
+    public bool isPlayerRed;
 
     public MagnetState magnetState;
 
@@ -54,6 +55,9 @@ public class MagnetLauncherManager : MonoBehaviour
     {
         if (((collision.tag == "MagnetRight" && launcherSide == LauncherSide.RIGHT) ||
             (collision.tag == "MagnetLeft" && launcherSide == LauncherSide.LEFT))
+            &&
+            ((collision.transform.parent.tag == "PlayerRed" && isPlayerRed) ||
+            (collision.transform.parent.tag == "PlayerGreen" && !isPlayerRed))
             &&
             magnetState == MagnetState.FIXED)
         {

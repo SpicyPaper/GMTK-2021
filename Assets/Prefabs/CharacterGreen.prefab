@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5101751215111154006}
   - component: {fileID: 2892807615934563214}
   - component: {fileID: 6918826594263374568}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MagnetField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7968169603727142602}
   - component: {fileID: 2532014025619978965}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: CharacterGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,6 +146,7 @@ MonoBehaviour:
   magnetRightLeft: {fileID: 81328736549605221}
   characterController: {fileID: 9181073861200747255}
   fieldMesh: {fileID: 6918826594263374568}
+  color: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1001 &7968169603682060562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -200,6 +201,14 @@ PrefabInstance:
     - target: {fileID: 1296220859768656869, guid: 481874e1076fdff4994f6e403b7f05d5, type: 3}
       propertyPath: m_Name
       value: CharacterController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1296220859768656869, guid: 481874e1076fdff4994f6e403b7f05d5, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1296220860496436565, guid: 481874e1076fdff4994f6e403b7f05d5, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 481874e1076fdff4994f6e403b7f05d5, type: 3}
@@ -270,7 +279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 372501543770527195, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 372501543770527195, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
       propertyPath: m_IsActive
@@ -278,7 +287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 372501544658976052, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 372501544658976059, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
       propertyPath: m_LocalScale.x
@@ -323,6 +332,10 @@ PrefabInstance:
     - target: {fileID: 4080225139941099989, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4875589188422794258, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4875589188422794269, guid: 0731c0557ac89cb41b1e3a46d0969870, type: 3}
       propertyPath: m_LocalScale.x

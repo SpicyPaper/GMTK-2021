@@ -66,6 +66,7 @@ public class MagnetLauncherManager : MonoBehaviour
         magnetPointEffector.enabled = false;
         particleSystem.Stop();
         launcherParticleSystem.Stop();
+        AudioManager.instance.StopMagnetSound(isPlayerRed, launcherSide);
     }
 
     public void Reset()
@@ -94,6 +95,7 @@ public class MagnetLauncherManager : MonoBehaviour
             magnetSprite.enabled = false;
             particleSystem.Stop();
             launcherParticleSystem.Stop();
+            AudioManager.instance.StopMagnetSound(isPlayerRed, launcherSide);
             magnetState = MagnetState.NONE;
         }
     }
@@ -233,6 +235,7 @@ public class MagnetLauncherManager : MonoBehaviour
             resVector = magnetPos - bodyPos;
             particleSystem.Play();
             launcherParticleSystem.Play();
+            AudioManager.instance.PlayMagnetSound(isPlayerRed, launcherSide);
 
             this.aimDirection = resVector.normalized;
         }
@@ -240,6 +243,7 @@ public class MagnetLauncherManager : MonoBehaviour
         {
             particleSystem.Stop();
             launcherParticleSystem.Stop();
+            AudioManager.instance.StopMagnetSound(isPlayerRed, launcherSide);
         }
 
         // Mouse move

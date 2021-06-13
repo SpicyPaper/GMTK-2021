@@ -47,7 +47,34 @@ MonoBehaviour:
   sounds:
   - name: Music
     clip: {fileID: 8300000, guid: c4b1f4940fc1a164fab5db42e00ef0bc, type: 3}
-    volume: 0.2
+    volume: 0.1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: magnet1
+    clip: {fileID: 8300000, guid: dee765f0c59f3b048bc20d166bfacb10, type: 3}
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: magnet2
+    clip: {fileID: 8300000, guid: 1176856e0bd06774eae80a367168dee3, type: 3}
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: magnet3
+    clip: {fileID: 8300000, guid: 1caf37a57e21dab47b83dab7a9f45250, type: 3}
+    volume: 0.5
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0

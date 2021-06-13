@@ -11,6 +11,9 @@ public class AudioManager : MonoBehaviour
 
 	public Sound[] sounds;
 
+	private static Sound[] playerMagnetSoundsLeft = new Sound[2];
+	private static Sound[] playerMagnetSoundsRight = new Sound[2];
+
 	private void Awake()
 	{
 		if (instance != null)
@@ -32,8 +35,8 @@ public class AudioManager : MonoBehaviour
 			s.source.outputAudioMixerGroup = mixerGroup;
 		}
 
-		Play("Music");
-	}
+        Play("Music");
+    }
 
 	public void Play(string sound)
 	{
@@ -49,5 +52,51 @@ public class AudioManager : MonoBehaviour
 
 		s.source.Play();
 	}
+
+	public void PlayMagnetSound(bool isPlayerRed, MagnetLauncherManager.LauncherSide side)
+    {
+		int player = isPlayerRed ? 0 : 1;
+		bool playSound = true;
+		Sound[] playerMagnetSounds;
+		if (side == MagnetLauncherManager.LauncherSide.LEFT)
+			playerMagnetSounds = playerMagnetSoundsLeft;
+		else
+			playerMagnetSounds = playerMagnetSoundsRight;
+
+		if (playerMagnetSounds[player] != null && playerMagnetSounds[player].source.isPlaying)
+		{
+			playSound = false;
+		}
+
+		if (playSound)
+        {
+
+			Sound[] magnetSounds = Array.FindAll(sounds, item => item.name.StartsWith("magnet"));
+			int rand = UnityEngine.Random.Range(0, magnetSounds.Length);
+			Sound s = magnetSounds[rand];
+			s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
+			s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
+
+			s.source.Play();
+			playerMagnetSounds[player] = s;
+		}
+	}
+
+	public void StopMagnetSound(bool isPlayerRed, MagnetLauncherManager.LauncherSide side)
+    {
+        int player = isPlayerRed ? 0 : 1;
+
+		Sound[] playerMagnetSounds;
+		if (side == MagnetLauncherManager.LauncherSide.LEFT)
+			playerMagnetSounds = playerMagnetSoundsLeft;
+		else
+			playerMagnetSounds = playerMagnetSoundsRight;
+
+		if (playerMagnetSounds[player] != null)
+        {
+            playerMagnetSounds[player].source.Stop();
+			playerMagnetSounds[player] = null;
+		}
+    }
 
 }

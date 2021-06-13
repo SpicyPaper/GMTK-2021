@@ -19,9 +19,9 @@ public class MagnetLauncherManager : MonoBehaviour
         FIXED
     }
 
-    [SerializeField] private Camera mainCamera = null;
+    public Camera mainCamera = null;
     [SerializeField] private GameObject body = null;
-    [SerializeField] private GameObject magnetPoint = null;
+    public GameObject magnetPoint = null;
     [SerializeField] private GameObject magnetLauncher = null;
     [SerializeField] private LauncherSide launcherSide = LauncherSide.RIGHT;
 
@@ -37,12 +37,15 @@ public class MagnetLauncherManager : MonoBehaviour
     private const float MAGNET_DISTANCE_FROM_BODY = 0.6f;
     private const float MAGNET_OFFSET = 0.05f;
 
-    private void Start()
+    public void Init()
     {
         magnetPointEffector = magnetPoint.GetComponent<PointEffector2D>();
         magnetRigidbody = magnetPoint.GetComponent<Rigidbody2D>();
         magnetSprite = magnetPoint.GetComponentInChildren<SpriteRenderer>();
+    }
 
+    private void Start()
+    {
         magnetPointEffector.enabled = false;
         magnetSprite.enabled = false;
     }

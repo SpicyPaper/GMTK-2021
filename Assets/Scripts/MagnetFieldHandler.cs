@@ -2,20 +2,20 @@ using UnityEngine;
 
 public class MagnetFieldHandler : MonoBehaviour
 {
-    [SerializeField] private GameObject magnetPointLeft = null;
-    [SerializeField] private GameObject magnetPointRight = null;
+    public GameObject magnetPointLeft = null;
+    public GameObject magnetPointRight = null;
 
-    [SerializeField] private MagnetLauncherManager magnetLaucherLeft = null;
-    [SerializeField] private MagnetLauncherManager magnetRightLeft = null;
+    public MagnetLauncherManager magnetLaucherLeft = null;
+    public MagnetLauncherManager magnetRightLeft = null;
 
-    [SerializeField] private GameObject characterController = null;
+    public GameObject characterController = null;
 
     [SerializeField] private MagnetFieldMesh fieldMesh = null;
 
     private Vector3 p1;
     private Vector3 p2;
     private Vector3 p3;
-    
+
     private float fieldCastTime;
     private float timePassed;
     private bool casting;
@@ -24,7 +24,7 @@ public class MagnetFieldHandler : MonoBehaviour
     {
         casting = false;
     }
-    
+
     private void Update()
     {
         if (Input.GetKey("e"))

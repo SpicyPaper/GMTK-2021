@@ -142,10 +142,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magnetPointLeft: {fileID: 0}
   magnetPointRight: {fileID: 0}
-  magnetLaucherLeft: {fileID: 7485807116651106860}
-  magnetRightLeft: {fileID: 2404952230153605898}
+  magnetLauncherLeft: {fileID: 7485807116651106860}
+  magnetLauncherRight: {fileID: 2404952230153605898}
   characterController: {fileID: 6857101282318632600}
   fieldMesh: {fileID: 4630957574896535175}
+  color: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1001 &5680247803019125147
 PrefabInstance:
   m_ObjectHideFlags: 0

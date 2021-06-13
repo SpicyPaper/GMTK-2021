@@ -5,8 +5,8 @@ public class MagnetFieldHandler : MonoBehaviour
     [SerializeField] private GameObject magnetPointLeft = null;
     [SerializeField] private GameObject magnetPointRight = null;
 
-    [SerializeField] private MagnetLauncherManager magnetLaucherLeft = null;
-    [SerializeField] private MagnetLauncherManager magnetRightLeft = null;
+    [SerializeField] private MagnetLauncherManager magnetLauncherLeft = null;
+    [SerializeField] private MagnetLauncherManager magnetLauncherRight = null;
 
     [SerializeField] private GameObject characterController = null;
 
@@ -22,16 +22,21 @@ public class MagnetFieldHandler : MonoBehaviour
     private float timePassed;
     private bool casting;
 
+    private Rigidbody2D rigidbody;
+    private CharacterController2D characterController2D;
+
     private const float FLASH_TIME = 0.2f;
 
     private void Start()
     {
         casting = false;
+        rigidbody = characterController.GetComponent<Rigidbody2D>();
+        characterController2D = characterController.GetComponent<CharacterController2D>();
     }
     
     private void Update()
     {
-        if (Input.GetKey("e"))
+        if (Input.GetKey("e") && AreMagnetsFixed())
         {
             if (!casting)
             {
@@ -39,6 +44,8 @@ public class MagnetFieldHandler : MonoBehaviour
 
                 casting = true;
                 fieldCastTime = 1 + ComputeSurface() / 10;
+
+                rigidbody.constraints = RigidbodyConstraints2D.FreezePosition;
             }
         }
 
@@ -64,10 +71,17 @@ public class MagnetFieldHandler : MonoBehaviour
                 progress = 0;
                 timePassed = 0;
                 casting = false;
+                rigidbody.constraints = RigidbodyConstraints2D.None;
             }
 
             fieldMesh.UpdateProgress(progress);
         }
+    }
+
+    private bool AreMagnetsFixed()
+    {
+        return magnetLauncherLeft.magnetState == MagnetLauncherManager.MagnetState.FIXED
+            && magnetLauncherRight.magnetState == MagnetLauncherManager.MagnetState.FIXED;
     }
 
     private void GetMagnetFieldCoordinates()

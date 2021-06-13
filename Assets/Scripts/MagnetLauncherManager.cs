@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
@@ -36,6 +34,14 @@ public class MagnetLauncherManager : MonoBehaviour
     private const float MAGNET_SPEED = 20;
     private const float MAGNET_DISTANCE_FROM_BODY = 0.6f;
     private const float MAGNET_OFFSET = 0.05f;
+
+    public void SetMagnetToFixed()
+    {
+        if (magnetState == MagnetState.THROWN)
+        {
+            magnetState = MagnetState.FIXED;
+        }
+    }
 
     private void Start()
     {
@@ -134,9 +140,8 @@ public class MagnetLauncherManager : MonoBehaviour
                 Debug.Log("Case not treated.");
                 return;
         }
-        if (mouseDown && magnetState == MagnetState.THROWN && magnetRigidbody.velocity == Vector2.zero)
+        if (mouseDown && magnetState == MagnetState.FIXED)
         {
-            magnetState = MagnetState.FIXED;
             magnetPointEffector.enabled = true;
         }
         if (control.wasPressedThisFrame)

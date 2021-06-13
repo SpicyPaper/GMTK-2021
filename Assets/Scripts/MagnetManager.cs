@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class MagnetManager : MonoBehaviour
 {
+    [SerializeField] private MagnetLauncherManager manager = null;
+
     private new Rigidbody2D rigidbody2D;
 
     private void Start()
@@ -14,6 +16,7 @@ public class MagnetManager : MonoBehaviour
         if (collision.tag == "Wall")
         {
             rigidbody2D.velocity = Vector2.zero;
+            manager.SetMagnetToFixed();
         }
     }
 }

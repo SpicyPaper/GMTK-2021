@@ -50,6 +50,7 @@ MonoBehaviour:
   magnetPoint: {fileID: 0}
   magnetLauncher: {fileID: 8191416057124402045}
   launcherSide: 0
+  launcherParticleSystem: {fileID: 0}
   isPlayerRed: 0
   isControlledByGamepad: 0
   magnetState: 0

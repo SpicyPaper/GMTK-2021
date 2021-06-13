@@ -132,6 +132,11 @@ public class MagnetLauncherManager : MonoBehaviour
                 Debug.Log("Case not treated.");
                 return;
         }
+        if (magnetState == MagnetState.THROWN && magnetRigidbody.velocity == Vector2.zero)
+        {
+            magnetPointEffector.enabled = true;
+            magnetState = MagnetState.FIXED;
+        }
         if (control.wasPressedThisFrame)
         {
             switch (magnetState)

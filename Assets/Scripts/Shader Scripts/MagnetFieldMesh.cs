@@ -11,11 +11,16 @@ public class MagnetFieldMesh : MonoBehaviour
     private const float MAX_RADIUS_RATIO = 0.51f;
     private const float ALPHA_RATIO = 0.5f;
 
+    private PolygonCollider2D polyCollider;
+
     private void Awake()
     {
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
         mat = GetComponent<MeshRenderer>().material;
+        tag = "Field";
+        polyCollider = GetComponent<PolygonCollider2D>();
+        polyCollider.pathCount = 1;
     }
 
     public void UpdateMesh(Vector3[] coordinates)
@@ -42,6 +47,14 @@ public class MagnetFieldMesh : MonoBehaviour
         mat.SetVector("Vector3_point1", coordinates[0]);
         mat.SetVector("Vector3_point2", coordinates[1]);
         mat.SetVector("Vector3_point3", coordinates[2]);
+
+        // Update Collider
+        Vector2[] points = new Vector2[coordinates.Length];
+        for (int i = 0; i < coordinates.Length; i++)
+        {
+            points[i] = new Vector2(coordinates[i].x, coordinates[i].y);
+        }
+        polyCollider.SetPath(0, points);
     }
 
     public void UpdateProgress(float progress)

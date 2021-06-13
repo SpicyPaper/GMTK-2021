@@ -10,6 +10,7 @@ TagManager:
   - Wall
   - PlayerRed
   - PlayerGreen
+  - Field
   layers:
   - Default
   - TransparentFX

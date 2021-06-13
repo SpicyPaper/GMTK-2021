@@ -8,7 +8,7 @@ public class MagnetFieldMesh : MonoBehaviour
 
     private Vector3[] coordinates;
 
-    private const float MAX_RADIUS_RATIO = 0.53f;
+    private const float MAX_RADIUS_RATIO = 0.51f;
     private const float ALPHA_RATIO = 0.5f;
 
     private void Awake()

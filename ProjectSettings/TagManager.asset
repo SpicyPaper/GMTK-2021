@@ -7,7 +7,6 @@ TagManager:
   - Ignore
   - MagnetRight
   - MagnetLeft
-  - Magnet
   - Wall
   layers:
   - Default

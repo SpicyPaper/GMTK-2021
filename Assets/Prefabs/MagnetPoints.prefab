@@ -103,6 +103,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7968434286006306349}
     m_Modifications:
+    - target: {fileID: 1052573486569565333, guid: 0c836b696ddf67143867e8f586cdd8d7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1400063151368481696, guid: 0c836b696ddf67143867e8f586cdd8d7, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -131,6 +135,14 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 3234205568902889662, guid: 0c836b696ddf67143867e8f586cdd8d7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135375134850564913, guid: 0c836b696ddf67143867e8f586cdd8d7, type: 3}
+      propertyPath: m_TagString
+      value: MagnetRight
+      objectReference: {fileID: 0}
     - target: {fileID: 9126478729623491932, guid: 0c836b696ddf67143867e8f586cdd8d7, type: 3}
       propertyPath: m_Name
       value: MagnetPointRight
@@ -149,6 +161,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7968434286006306349}
     m_Modifications:
+    - target: {fileID: 1052573486569565333, guid: 0c836b696ddf67143867e8f586cdd8d7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1400063151368481696, guid: 0c836b696ddf67143867e8f586cdd8d7, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -177,6 +193,14 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 3234205568902889662, guid: 0c836b696ddf67143867e8f586cdd8d7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135375134850564913, guid: 0c836b696ddf67143867e8f586cdd8d7, type: 3}
+      propertyPath: m_TagString
+      value: MagnetLeft
+      objectReference: {fileID: 0}
     - target: {fileID: 9126478729623491932, guid: 0c836b696ddf67143867e8f586cdd8d7, type: 3}
       propertyPath: m_Name
       value: MagnetPointLeft
@@ -195,6 +219,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 325071059426810518}
     m_Modifications:
+    - target: {fileID: 1052573486569565333, guid: 0c836b696ddf67143867e8f586cdd8d7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1400063151368481696, guid: 0c836b696ddf67143867e8f586cdd8d7, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -237,6 +265,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1400063151368481696, guid: 0c836b696ddf67143867e8f586cdd8d7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234205568902889662, guid: 0c836b696ddf67143867e8f586cdd8d7, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7135375134850564913, guid: 0c836b696ddf67143867e8f586cdd8d7, type: 3}
@@ -261,6 +293,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 325071059426810518}
     m_Modifications:
+    - target: {fileID: 1052573486569565333, guid: 0c836b696ddf67143867e8f586cdd8d7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1400063151368481696, guid: 0c836b696ddf67143867e8f586cdd8d7, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -303,6 +339,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1400063151368481696, guid: 0c836b696ddf67143867e8f586cdd8d7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234205568902889662, guid: 0c836b696ddf67143867e8f586cdd8d7, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7135375134850564913, guid: 0c836b696ddf67143867e8f586cdd8d7, type: 3}

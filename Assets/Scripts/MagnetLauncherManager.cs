@@ -23,6 +23,7 @@ public class MagnetLauncherManager : MonoBehaviour
     [SerializeField] private GameObject magnetLauncher = null;
     [SerializeField] private LauncherSide launcherSide = LauncherSide.RIGHT;
     public bool isPlayerRed;
+    public bool isControlledByGamepad;
 
     public MagnetState magnetState;
 
@@ -85,6 +86,39 @@ public class MagnetLauncherManager : MonoBehaviour
         return v;
     }
 
+    public void Aim(Vector2 aimDirection)
+    {
+        if (!isControlledByGamepad)
+        {
+            return;
+        }
+
+        ApplyAim(aimDirection);
+    }
+
+    private void ApplyAim(Vector2 vector)
+    {
+        Vector2 bodyPos = body.transform.position;
+
+        float radian = Mathf.Atan2(vector.y, vector.x);
+        float degrees = radian * Mathf.Rad2Deg;
+        float resDegrees = degrees - 90;
+        float offset;
+
+        if (!magnetPointEffector.enabled)
+        {
+            offset = (launcherSide == LauncherSide.RIGHT ? 1 : -1) * MAGNET_OFFSET;
+        }
+        else
+        {
+            offset = 0;
+        }
+
+        magnetLauncher.transform.position = bodyPos + vector * MAGNET_DISTANCE_FROM_BODY +
+            RotateVector(vector, 90) * offset;
+        magnetLauncher.transform.rotation = Quaternion.Euler(0, 0, resDegrees);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -97,100 +131,84 @@ public class MagnetLauncherManager : MonoBehaviour
         }
 
         // Mouse move
-        Vector2 mousePos = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        Vector2 magnetPos = magnetPoint.transform.position;
-        Vector2 bodyPos = body.transform.position;
-
-        Vector2 resVector;
-        float y;
-        float x;
-        float offset;
-
-        if (!magnetPointEffector.enabled)
+        if (!isControlledByGamepad)
         {
-            resVector = mousePos - bodyPos;
+            Vector2 mousePos = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            Vector2 magnetPos = magnetPoint.transform.position;
+            Vector2 bodyPos = body.transform.position;
 
-            y = mousePos.y - bodyPos.y;
-            x = mousePos.x - bodyPos.x;
+            Vector2 resVector;
 
-            offset = (launcherSide == LauncherSide.RIGHT ? 1 : -1) * MAGNET_OFFSET;
-        }
-        else
-        {
-            resVector = magnetPos - bodyPos;
-
-            y = magnetPos.y - bodyPos.y;
-            x = magnetPos.x - bodyPos.x;
-
-            offset = 0;
-        }
-
-        float radian = Mathf.Atan2(y, x);
-        float degrees = radian * Mathf.Rad2Deg;
-        float resDegrees = degrees - 90;
-
-        magnetLauncher.transform.position = bodyPos + resVector.normalized * MAGNET_DISTANCE_FROM_BODY +
-            RotateVector(resVector.normalized, 90) * offset;
-        magnetLauncher.transform.rotation = Quaternion.Euler(0, 0, resDegrees);
-
-        // Mouse click
-        ButtonControl control;
-        switch (launcherSide)
-        {
-            case LauncherSide.RIGHT:
-                control = mouse.rightButton;
-                break;
-            case LauncherSide.LEFT:
-                control = mouse.leftButton;
-                break;
-            default:
-                Debug.Log("Case not treated.");
-                return;
-        }
-        if (mouseDown && magnetState == MagnetState.FIXED)
-        {
-            magnetPointEffector.enabled = true;
-        }
-        if (control.wasPressedThisFrame)
-        {
-            mouseDown = true;
-
-            switch (magnetState)
+            if (!magnetPointEffector.enabled)
             {
-                case MagnetState.NONE:
-                    magnetSprite.enabled = true;
-                    magnetPoint.transform.position = body.transform.position;
-                    magnetRigidbody.velocity = resVector.normalized * MAGNET_SPEED;
-                    magnetState = MagnetState.THROWN;
-                    break;
-                case MagnetState.THROWN:
-                    magnetRigidbody.velocity = Vector2.zero;
-                    magnetPointEffector.enabled = true;
-                    magnetState = MagnetState.FIXED;
-                    break;
-                case MagnetState.FIXED:
-                    magnetPointEffector.enabled = true;
-                    break;
-                default:
-                    break;
+                resVector = mousePos - bodyPos;
             }
-        }
-        if (control.wasReleasedThisFrame)
-        {
-            mouseDown = false;
-
-            switch (magnetState)
+            else
             {
-                case MagnetState.NONE:
+                resVector = magnetPos - bodyPos;
+            }
+
+            ApplyAim(resVector.normalized);
+
+            // Mouse click
+            ButtonControl control;
+            switch (launcherSide)
+            {
+                case LauncherSide.RIGHT:
+                    control = mouse.rightButton;
                     break;
-                case MagnetState.THROWN:
-                    magnetPointEffector.enabled = false;
-                    break;
-                case MagnetState.FIXED:
-                    magnetPointEffector.enabled = false;
+                case LauncherSide.LEFT:
+                    control = mouse.leftButton;
                     break;
                 default:
-                    break;
+                    Debug.Log("Case not treated.");
+                    return;
+            }
+            if (mouseDown && magnetState == MagnetState.FIXED)
+            {
+                magnetPointEffector.enabled = true;
+            }
+            if (control.wasPressedThisFrame)
+            {
+                mouseDown = true;
+
+                switch (magnetState)
+                {
+                    case MagnetState.NONE:
+                        magnetSprite.enabled = true;
+                        magnetPoint.transform.position = body.transform.position;
+                        magnetRigidbody.velocity = resVector.normalized * MAGNET_SPEED;
+                        magnetState = MagnetState.THROWN;
+                        break;
+                    case MagnetState.THROWN:
+                        magnetRigidbody.velocity = Vector2.zero;
+                        magnetPointEffector.enabled = true;
+                        magnetState = MagnetState.FIXED;
+                        break;
+                    case MagnetState.FIXED:
+                        magnetPointEffector.enabled = true;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            if (control.wasReleasedThisFrame)
+            {
+                mouseDown = false;
+
+                switch (magnetState)
+                {
+                    case MagnetState.NONE:
+                        break;
+                    case MagnetState.THROWN:
+                        magnetPointEffector.enabled = false;
+                        break;
+                    case MagnetState.FIXED:
+                        magnetPointEffector.enabled = false;
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }

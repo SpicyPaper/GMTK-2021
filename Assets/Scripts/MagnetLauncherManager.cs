@@ -31,6 +31,8 @@ public class MagnetLauncherManager : MonoBehaviour
     private Rigidbody2D magnetRigidbody;
     private SpriteRenderer magnetSprite;
 
+    private Vector2 aimDirection;
+
     private bool mouseDown;
 
     private const float MAGNET_SPEED = 20;
@@ -54,6 +56,7 @@ public class MagnetLauncherManager : MonoBehaviour
 
     private void Start()
     {
+        this.aimDirection = Vector2.up;
         magnetPointEffector.enabled = false;
         magnetSprite.enabled = false;
     }
@@ -93,7 +96,14 @@ public class MagnetLauncherManager : MonoBehaviour
             return;
         }
 
-        ApplyAim(aimDirection);
+        aimDirection = aimDirection.normalized;
+
+        if (aimDirection.magnitude <= 0.1f)
+        {
+            return;
+        }
+
+        this.aimDirection = aimDirection;
     }
 
     private void ApplyAim(Vector2 vector)
@@ -148,7 +158,7 @@ public class MagnetLauncherManager : MonoBehaviour
                 resVector = magnetPos - bodyPos;
             }
 
-            ApplyAim(resVector.normalized);
+            this.aimDirection = resVector.normalized;
 
             // Mouse click
             ButtonControl control;
@@ -211,5 +221,7 @@ public class MagnetLauncherManager : MonoBehaviour
                 }
             }
         }
+
+        ApplyAim(this.aimDirection);
     }
 }

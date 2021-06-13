@@ -39,7 +39,7 @@ public class MagnetLauncherManager : MonoBehaviour
 
     private bool isStayedPress;
 
-    private const float MAGNET_SPEED = 20;
+    private const float MAGNET_SPEED = 10;
     private const float MAGNET_DISTANCE_FROM_BODY = 0.6f;
     private const float MAGNET_OFFSET = 0.05f;
 
@@ -61,12 +61,24 @@ public class MagnetLauncherManager : MonoBehaviour
 
     private void Start()
     {
-        this.aimDirection = Vector2.up;
-        magnetPointEffector.enabled = false;
+        aimDirection = Vector2.up;
         magnetSprite.enabled = false;
+        magnetPointEffector.enabled = false;
         particleSystem.Stop();
         launcherParticleSystem.Stop();
         AudioManager.instance.StopMagnetSound(isPlayerRed, launcherSide);
+    }
+
+    public void Reset()
+    {
+        if (magnetPointEffector != null)
+        {
+            aimDirection = Vector2.up;
+            magnetSprite.enabled = false;
+            magnetPointEffector.enabled = false;
+
+            magnetState = MagnetState.NONE;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

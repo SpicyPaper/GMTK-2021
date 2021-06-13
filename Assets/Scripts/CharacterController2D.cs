@@ -13,12 +13,16 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
     public List<PointEffector2D> pointEffectors = new List<PointEffector2D>();
 
+    public delegate void TakeDamageEvent(bool redWon);
+    public static event TakeDamageEvent OnTakeDamageEvent;
+    
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
     private bool m_Grounded;            // Whether or not the player is grounded.
     private Rigidbody2D m_Rigidbody2D;
     private Vector3 m_Velocity = Vector3.zero;
 
     private bool isAttracted = false;
+    private bool damangeActivated;
 
     private float initGravityScale;
 
@@ -30,9 +34,15 @@ public class CharacterController2D : MonoBehaviour
     [System.Serializable]
     public class BoolEvent : UnityEvent<bool> { }
 
+    public void ResetCharacter()
+    {
+        damangeActivated = false;
+    }
+
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        m_Rigidbody2D.constraints = RigidbodyConstraints2D.None;
 
         initGravityScale = m_Rigidbody2D.gravityScale;
 
@@ -65,7 +75,11 @@ public class CharacterController2D : MonoBehaviour
         if ((gameObject.layer == 10 && collision.gameObject.layer == 11) 
             || (gameObject.layer == 9 && collision.gameObject.layer == 12))
         {
-            Debug.Log("IN");
+            if (!damangeActivated)
+            {
+                damangeActivated = true;
+                OnTakeDamageEvent(gameObject.layer == 10);
+            }
         }
     }
 
@@ -75,7 +89,7 @@ public class CharacterController2D : MonoBehaviour
         {
             return;
         }
-
+        
         isAttracted = false;
 
         foreach (PointEffector2D effector in pointEffectors)
@@ -85,7 +99,7 @@ public class CharacterController2D : MonoBehaviour
                 isAttracted = true;
             }
         }
-
+        
         m_Rigidbody2D.gravityScale = isAttracted ? 0 : initGravityScale;
     }
 
@@ -96,7 +110,7 @@ public class CharacterController2D : MonoBehaviour
         {
             return;
         }
-
+        
         move *= runSpeed;
         //only control the player if grounded or airControl is turned on
         if (m_Grounded || m_AirControl && (move > 0.001 || move < -0.001))
@@ -105,7 +119,6 @@ public class CharacterController2D : MonoBehaviour
             Vector3 targetVelocity = new Vector2(move, m_Rigidbody2D.velocity.y);
             // And then smoothing it out and applying it to the character
             m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
-
         }
         // If the player should jump...
         if (m_Grounded && jump)

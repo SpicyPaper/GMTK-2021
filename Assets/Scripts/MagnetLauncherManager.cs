@@ -117,7 +117,7 @@ public class MagnetLauncherManager : MonoBehaviour
 
         if (!magnetPointEffector.enabled)
         {
-            offset = (launcherSide == LauncherSide.RIGHT ? 1 : -1) * MAGNET_OFFSET;
+            offset = (launcherSide == LauncherSide.LEFT ? 1 : -1) * MAGNET_OFFSET;
         }
         else
         {

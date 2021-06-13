@@ -17,11 +17,12 @@ public class MagnetLauncherManager : MonoBehaviour
         FIXED
     }
 
-    [SerializeField] private Camera mainCamera = null;
+    public Camera mainCamera = null;
     [SerializeField] private GameObject body = null;
-    [SerializeField] private GameObject magnetPoint = null;
+    public GameObject magnetPoint = null;
     [SerializeField] private GameObject magnetLauncher = null;
     [SerializeField] private LauncherSide launcherSide = LauncherSide.RIGHT;
+    public bool isPlayerRed;
 
     public MagnetState magnetState;
 
@@ -43,12 +44,15 @@ public class MagnetLauncherManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void Init()
     {
         magnetPointEffector = magnetPoint.GetComponent<PointEffector2D>();
         magnetRigidbody = magnetPoint.GetComponent<Rigidbody2D>();
         magnetSprite = magnetPoint.GetComponentInChildren<SpriteRenderer>();
+    }
 
+    private void Start()
+    {
         magnetPointEffector.enabled = false;
         magnetSprite.enabled = false;
     }
@@ -57,6 +61,9 @@ public class MagnetLauncherManager : MonoBehaviour
     {
         if (((collision.tag == "MagnetRight" && launcherSide == LauncherSide.RIGHT) ||
             (collision.tag == "MagnetLeft" && launcherSide == LauncherSide.LEFT))
+            &&
+            ((collision.transform.parent.tag == "PlayerRed" && isPlayerRed) ||
+            (collision.transform.parent.tag == "PlayerGreen" && !isPlayerRed))
             &&
             magnetState == MagnetState.FIXED)
         {

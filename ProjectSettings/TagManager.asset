@@ -7,8 +7,9 @@ TagManager:
   - Ignore
   - MagnetRight
   - MagnetLeft
-  - Magnet
   - Wall
+  - PlayerRed
+  - PlayerGreen
   layers:
   - Default
   - TransparentFX
@@ -19,8 +20,8 @@ TagManager:
   - Ground
   - Character
   - Magnet
-  - 
-  - 
+  - PlayerRed
+  - PlayerGreen
   - 
   - 
   - 

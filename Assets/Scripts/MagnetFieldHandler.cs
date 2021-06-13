@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class MagnetFieldHandler : MonoBehaviour
 {
-    [SerializeField] private GameObject magnetPointLeft = null;
-    [SerializeField] private GameObject magnetPointRight = null;
+    public GameObject magnetPointLeft = null;
+    public GameObject magnetPointRight = null;
 
-    [SerializeField] private MagnetLauncherManager magnetLauncherLeft = null;
-    [SerializeField] private MagnetLauncherManager magnetLauncherRight = null;
+    public MagnetLauncherManager magnetLaucherLeft = null;
+    public MagnetLauncherManager magnetRightLeft = null;
 
-    [SerializeField] private GameObject characterController = null;
+    public GameObject characterController = null;
 
     [SerializeField] private MagnetFieldMesh fieldMesh = null;
 
@@ -17,7 +17,7 @@ public class MagnetFieldHandler : MonoBehaviour
     private Vector3 p1;
     private Vector3 p2;
     private Vector3 p3;
-    
+
     private float fieldCastTime;
     private float timePassed;
     private bool casting;
@@ -33,7 +33,7 @@ public class MagnetFieldHandler : MonoBehaviour
         rigidbody = characterController.GetComponent<Rigidbody2D>();
         characterController2D = characterController.GetComponent<CharacterController2D>();
     }
-    
+
     private void Update()
     {
         if (Input.GetKey("e") && AreMagnetsFixed())
